@@ -11,7 +11,8 @@ const Main = () => {
 
   return (
     <section class='banner' id='sec'>
-      <div className='box'></div>
+      <div id='progressBar'></div>
+      <div id='scrollPath'></div>
       <header>
         <Link to='/' class='logo'>
           Sk
@@ -73,9 +74,7 @@ const Main = () => {
           finibus vel nec mauris.
         </p>
 
-        <a id='button-style' href='#'>
-          Learn more
-        </a>
+        <Link to='/'>Learn more</Link>
       </div>
       <ul class='sci'>
         <li>
