@@ -117,6 +117,8 @@ header #toggle:after {
     transform: translateX(-400px);
 }
 
+/* Navigation */
+
 #navigation {
     position: fixed;
     top: 0;
@@ -128,6 +130,7 @@ header #toggle:after {
     display: grid;
     place-items: center;
     transition: 0.5s;
+    overflow: hidden;
 }
 
 #navigation.active {
@@ -138,10 +141,34 @@ header #toggle:after {
     position: relative;
     display: flex;
     flex-direction: column;
+    
 }
 
 #navigation ul li {
     list-style: none;
+   
+}
+
+#navigation ul li:before {
+    content: attr(data-text);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 6em;
+    font-weight: 700;
+    pointer-events: none;
+    opacity: 0;
+    letter-spacing: 20px;
+    transition: 0.5s;
+    white-space: nowrap;
+
+}
+
+#navigation ul li:hover:before {
+    opacity: 0.5;
+    letter-spacing: 0px;
 }
 
 #navigation ul li a {
@@ -151,6 +178,46 @@ header #toggle:after {
     font-size: 2em;
     font-weight: 600;
     text-transform: uppercase;
+    /* !!! */
+    letter-spacing: 2px;
+    overflow: hidden;
+    transition: 0.5s;
+    z-index: 1;
+}
+
+
+
+#navigation ul:hover li a {
+    opacity: 0;
+}
+
+#navigation ul li a:hover {
+    transform: scale(1.4);
+    z-index: 1000;
+    background:  rgb(247, 85, 85);
+    opacity: 1;
+    padding: 0px 3px;
+    border-radius: 6px;
+}
+
+#navigation ul li a:before {
+    content: '';
+    position: absolute;
+    top:0;
+    left: -100px;
+    width: 80px;
+    height: 100%;
+    
+    transition: 0s;
+    
+}
+
+#navigation ul li a:hover:before {
+    left: calc(100% + 100px);
+    transition: 0.5s;
+    transition-delay: 0.2s;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+    transform: skewX(35deg);
 }
 
 .content {
@@ -218,6 +285,8 @@ header #toggle:after {
     mix-blend-mode: difference;
 }
 
+/* Media queries */
+
 @media (max-width: 767px) {
     header {
         padding: 20px 50px;
@@ -253,6 +322,8 @@ header #toggle:after {
         margin-right: 10px;
     }
 }
+
+/* Scrollbar */
 
 ::-webkit-scrollbar {
     width: 0;
@@ -305,3 +376,5 @@ header #toggle:after {
     background: linear-gradient(to top, #008aff,#00ffe7);
     filter: blur(30px);
 }
+
+/* Navigation */
