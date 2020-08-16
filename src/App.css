@@ -209,7 +209,7 @@ header #toggle:after {
 }
 
 .sci li a:hover {
-   background: linear-gradient(90deg,#40c3ff,#00ff08);
+    background: #fff;
 }
 
 .sci li a img {
